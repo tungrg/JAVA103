@@ -9,7 +9,8 @@ import java.io.IOException;
 public class Hello extends HttpServlet {
     protected void doGet(HttpServletRequest request,
          HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().println("<h1>Hello, FPT Polytechnic!</h1>");
+        //response.getWriter().println("<h1>Hello, FPT Polytechnic!</h1>");
+        request.getRequestDispatcher("/hello.jsp").forward(request, response);
     }
 
 }
