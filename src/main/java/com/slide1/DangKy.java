@@ -1,6 +1,8 @@
 package com.slide1;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +26,34 @@ public class DangKy extends HttpServlet {
         String username = request.getParameter("username");
         String age = request.getParameter("age");
         String password = request.getParameter("password");
+        Map<String, String> errors = new HashMap<>();
+        if (email == null || email.isEmpty()) {
+            errors.put("email", "Email is required");
+        }
+        if (username == null || username.isEmpty()) {
+            errors.put("username", "Username is required");
+        }
+        if (age == null || age.isEmpty()) {
+            errors.put("age", "Age is required");
+        } else {
+            try {
+                int ageValue = Integer.parseInt(age);
+                if (ageValue < 18) {
+                    errors.put("age", "Age must be at least 18");
+                }
+            } catch (NumberFormatException e) {
+                errors.put("age", "Age must be a valid number");
+            }
+        }
+        if (password == null || password.isEmpty()) {
+            errors.put("password", "Password is required");
+        }
+        if (!errors.isEmpty()) {
+            request.setAttribute("error", errors);
+            request.getRequestDispatcher("/dangky.jsp").forward(request, response);
+            return;
+        }
+
         User user = new User(email, username, Integer.parseInt(age), password);
         boolean success = userDao.registerUser(user);
         if (success) {
