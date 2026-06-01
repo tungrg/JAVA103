@@ -1,4 +1,4 @@
-package com.slide1;
+package com.slide1.Entity;
 
 import javax.annotation.processing.Generated;
 

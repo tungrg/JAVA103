@@ -7,6 +7,8 @@ import javax.swing.text.html.parser.Entity;
 
 import org.mariadb.jdbc.Connection;
 
+import com.slide1.Entity.User;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

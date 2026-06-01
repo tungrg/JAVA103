@@ -1,4 +1,4 @@
-package com.slide1;
+package com.slide1.Servlet;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.mariadb.jdbc.Connection;
+import com.slide1.Dao.UserDao;
+import com.slide1.Entity.User;
 
 @WebServlet("/dangky")
 public class DangKy extends HttpServlet {
@@ -55,12 +56,8 @@ public class DangKy extends HttpServlet {
         }
 
         User user = new User(email, username, Integer.parseInt(age), password);
-        boolean success = userDao.registerUser(user);
-        if (success) {
-            response.getWriter().println("<h1>Dang ky thanh cong!</h1>");
-        } else {
-            response.getWriter().println("<h1>Dang ky that bai!</h1>");
-        }
+        userDao.save(user);
+        response.getWriter().println("<h1>Registration successful!</h1>");
     }
 
 }

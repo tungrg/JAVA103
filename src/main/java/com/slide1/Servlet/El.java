@@ -1,4 +1,4 @@
-package com.slide1;
+package com.slide1.Servlet;
 
 import java.io.IOException;
 import java.util.Date;

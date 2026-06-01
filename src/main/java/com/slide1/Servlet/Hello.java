@@ -1,4 +1,4 @@
-package com.slide1;
+package com.slide1.Servlet;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
