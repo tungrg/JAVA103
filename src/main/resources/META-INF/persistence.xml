@@ -10,6 +10,7 @@
             <property name="jakarta.persistence.jdbc.user" value="admin"/>
             <property name="jakarta.persistence.jdbc.password" value="1234"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
+
             <!-- trong truong hop su dung sql server -->
             <!-- <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=demo;trustServerCertificate=true"/>
@@ -17,7 +18,16 @@
             <property name="jakarta.persistence.jdbc.password" value="123456"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/> -->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            
+            <!-- Trong truong hop su dung MySQL -->
+            
+            <!-- <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/demo?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="1234"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/> -->
 
         </properties>
     </persistence-unit>
