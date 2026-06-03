@@ -1,6 +1,5 @@
 package com.slide1.Entity;
 
-import javax.annotation.processing.Generated;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,6 +30,12 @@ public class User {
         this.username = username;
         this.age = age;
         this.password = password;
+    }
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
     }
     public String getEmail() {
         return email;

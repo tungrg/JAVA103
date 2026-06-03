@@ -7,8 +7,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class DbConnector {
-    private static EntityManagerFactory emf;
-    private static EntityManager em;
+    public static EntityManagerFactory emf;
+    public static EntityManager em;
     public static EntityManager getConnection() {
         if (emf == null) {
             emf = Persistence.createEntityManagerFactory("demo");
@@ -17,6 +17,14 @@ public class DbConnector {
             em = emf.createEntityManager();
         }
         return em;
+    }
+    public static void closeConnection() {
+        if (em != null && em.isOpen()) {
+            em.close();
+        }
+        if (emf != null && emf.isOpen()) {
+            emf.close();
+        }
     }
 
 
