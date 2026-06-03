@@ -22,7 +22,7 @@ public class UserManagement extends HttpServlet {
         // Handle GET requests for listing users or showing user details
         List<User> users = userDao.findAll();
         request.setAttribute("users", users);
-        request.getRequestDispatcher("/user-management.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/user-management.jsp").forward(request, response);
 
     }
     @Override
@@ -53,7 +53,7 @@ public class UserManagement extends HttpServlet {
             }
         }
         // Redirect to the same page to refresh the user list
-        response.sendRedirect("/user-management");
+        response.sendRedirect("user-management");
     }
 
 }
