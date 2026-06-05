@@ -1,27 +1,31 @@
 package com.slide1.Entity;
 
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
 public class User {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "email", unique = true)
+    @Column(name = "email", unique = true, nullable = false, length = 255)
     private String email;
-    @Column(name = "username", unique = true)
+    @Column(name = "username", unique = true, nullable = false, length = 100)
     private String username;
-    @Column(name = "age")
+    @Column(name = "age", nullable = false)
     private int age;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, length = 255)
     private String password;
     public User() {}
 
@@ -61,5 +65,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    @OneToMany(mappedBy = "user")
+    private List<Favorite> favorites;
 }
