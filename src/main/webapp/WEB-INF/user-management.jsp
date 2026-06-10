@@ -52,7 +52,7 @@
                             document.getElementById('email').value='${user.email}';
                             document.getElementById('username').value='${user.username}';
                             document.getElementById('age').value='${user.age}';
-                            document.getElementById('password').value='user.password';
+                            document.getElementById('password').value='${user.password}';
                         ">Edit</button>
 
                     </form>

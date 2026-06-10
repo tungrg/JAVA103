@@ -6,11 +6,19 @@ import java.util.List;
 import com.slide1.Dao.UserDao;
 import com.slide1.Entity.User;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+//jetty version 11.x su dung jakarta.servlet thay vi javax.servlet, neu khong chay duoc thi doi import tu jakarta.servlet sang javax.servlet
+//ko chay duoc thi import jakarta.servlet.ServletException; --- IGNORE ---
+//ko chay duoc thi import jakarta.servlet.annotation.WebServlet; --- IGNORE ---
+//ko chay duoc thi import jakarta.servlet.http.HttpServlet; --- IGNORE ---
+//ko chay duoc thi import jakarta.servlet.http.HttpServletRequest; --- IGNORE ---
+//ko chay duoc thi import jakarta.servlet.http.HttpServletResponse; --- IGNORE --
+
 
 @WebServlet("/user-management")
 public class UserManagement extends HttpServlet {
@@ -21,6 +29,10 @@ public class UserManagement extends HttpServlet {
          HttpServletResponse response) throws ServletException, IOException {
         // Handle GET requests for listing users or showing user details
         List<User> users = userDao.findAll();
+        // for(User user : users) {
+        //     System.out.println("User: " + user.getEmail() + ", " + user.getUsername());
+        // }
+
         request.setAttribute("users", users);
         request.getRequestDispatcher("/WEB-INF/user-management.jsp").forward(request, response);
 

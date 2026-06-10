@@ -60,7 +60,8 @@ public class UserDao {
     }
     public User findByUsernameAndPassword(String username, String password) {
         try {
-            return DbConnector.em.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
+            return DbConnector.em.createQuery(
+                "SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
                     .setParameter("username", username)
                     .setParameter("password", password)
                     .getSingleResult();
