@@ -21,6 +21,11 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request,
         HttpServletResponse response) throws ServletException, IOException {
+        // Check if user is logged in
+        if (request.getSession(false) == null || request.getSession(false).getAttribute("user") == null) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
         // Lay ra bien visitCount tu application scope de hien thi so lan truy cap
         Integer visitCount = (Integer) request.getServletContext().getAttribute("visitCount");
         // Neu visitCount chua ton tai, khoi tao no bang 0
